@@ -22,7 +22,7 @@ function App() {
     <div className="container">
       <div className="header">
         <img src={seiPepeLogo} alt="SEI Pepe Logo" className="logo" />
-        <h1 className="title">Wallet Whitelist Checker</h1>
+        <h1 className="title">Wallet Checker</h1>
       </div>
       <div className="content">
         <input
