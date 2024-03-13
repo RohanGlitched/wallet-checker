@@ -9,9 +9,16 @@ function App() {
   const [result, setResult] = useState('');
 
   const checkWallet = () => {
-    if (whitelist.includes(walletAddress)) {
+    const trimmedAddress = walletAddress.trim().toLowerCase(); // Remove leading and trailing whitespaces and convert to lowercase
+    
+    const isInWhitelist = whitelist.some(address => address.toLowerCase() === trimmedAddress);
+    const isInOGList = ogList.some(address => address.toLowerCase() === trimmedAddress);
+
+    if (isInWhitelist && isInOGList) {
+      setResult('Wallet is in OG list');
+    } else if (isInWhitelist) {
       setResult('Wallet is in whitelist');
-    } else if (ogList.includes(walletAddress)) {
+    } else if (isInOGList) {
       setResult('Wallet is in OG list');
     } else {
       setResult('Wallet is not in whitelist or OG list');
